@@ -1,0 +1,26 @@
+{
+  "name": "reactive-design-patterns",
+  "version": "1.0.0",
+  "description": "Examples for Reactive Design Patterns",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiven-wang/reactive-design-patterns.git"
+  },
+  "keywords": [
+    "Reactive",
+    "JavaScript"
+  ],
+  "author": "Tiven Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tiven-wang/reactive-design-patterns/issues"
+  },
+  "homepage": "https://github.com/tiven-wang/reactive-design-patterns#readme",
+  "devDependencies": {
+    "mocha": "^3.5.3"
+  }
+}
