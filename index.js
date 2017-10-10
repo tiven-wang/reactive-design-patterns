@@ -39,7 +39,15 @@ User.prototype.sleep = function () {
   return new Promise((resolve, reject) => {
     setTimeout(()=> {
       resolve('waking');
-    }, 10000);
+    }, 2000);
+  });
+};
+
+User.prototype.eat = function () {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=> {
+      resolve('eaten');
+    }, Math.random()*1000);
   });
 };
 

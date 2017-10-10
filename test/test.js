@@ -58,15 +58,42 @@ describe('User', function() {
   });
 
 // Async Timeout
-  describe('#sleep', function() {
+  describe('#sleep()', function() {
     let user;
     before(function() {
       user = new User('Tiven');
     });
     it('should waking without timeout', async function(){
-      this.timeout(5000);
+      this.timeout(1000);
       let status = await user.sleep();
       assert.equal(status, "waking", "User should be waking");
+    });
+  });
+
+// Testing Service-Level Agreements
+  describe('#eat()', function() {
+    let user;
+    before(function() {
+      user = new User('Tiven');
+    });
+    it('should eaten within latency', function(done){
+      // this.timeout(10000);
+      let n = 200, times = n;
+      let timings = [];
+      while(times > 0) {
+        let start = Date.now();
+        user.eat().then(()=> {
+          let stop = Date.now();
+          timings.push(stop - start);
+          if(timings.length == n) {
+            timings.sort();
+            // console.log(timings[Math.ceil(95/100*timings.length)-1]);
+            assert.ok(timings[Math.ceil(95/100*timings.length)-1] < 950);
+            done();
+          }
+        });
+        times--;
+      }
     });
   });
 });
