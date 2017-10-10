@@ -35,4 +35,12 @@ User.prototype.delete = function () {
   });
 };
 
+User.prototype.sleep = function () {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=> {
+      resolve('waking');
+    }, 10000);
+  });
+};
+
 module.exports = User;

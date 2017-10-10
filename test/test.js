@@ -25,10 +25,8 @@ describe('User', function() {
       });
     });
   });
-});
 
 // Promise async work/test
-describe('User', function() {
   describe('#update()', function() {
     let user;
     before(function() {
@@ -41,14 +39,12 @@ describe('User', function() {
       });
     });
 
-    it('should update with error', function() {
+    it('should update without error', function() {
       return user.update();
     });
   });
-});
 
 // Async/Await async work/test
-describe('User', function() {
   describe('#delete()', function() {
     let user;
     before(function() {
@@ -59,6 +55,18 @@ describe('User', function() {
       let status = await user.delete();
       assert.equal(status, "deleted", "User should be deleted");
     });
+  });
 
+// Async Timeout
+  describe('#sleep', function() {
+    let user;
+    before(function() {
+      user = new User('Tiven');
+    });
+    it('should waking without timeout', async function(){
+      this.timeout(5000);
+      let status = await user.sleep();
+      assert.equal(status, "waking", "User should be waking");
+    });
   });
 });
