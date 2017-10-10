@@ -49,14 +49,15 @@ describe('User', function() {
 
 // Async/Await async work/test
 describe('User', function() {
-  describe('#update()', function() {
+  describe('#delete()', function() {
     let user;
     before(function() {
       user = new User('Tiven');
     });
 
-    it('should delete without error', function() {
-      return user.delete();
+    it('should delete without error', async function() {
+      let status = await user.delete();
+      assert.equal(status, "deleted", "User should be deleted");
     });
 
   });

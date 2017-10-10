@@ -27,16 +27,12 @@ User.prototype.update = function (username) {
   });
 };
 
-User.prototype.delete = async function (username) {
-  await deleteUser(this);
-};
-
-function deleteUser(user) {
+User.prototype.delete = function () {
   return new Promise((resolve, reject) => {
     setTimeout(()=> {
-      resolve();
-    });
+      resolve('deleted');
+    }, 1000);
   });
-}
+};
 
 module.exports = User;
